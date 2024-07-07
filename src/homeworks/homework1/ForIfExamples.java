@@ -20,7 +20,7 @@ public class ForIfExamples {
         }
         System.out.println();
         int even = 0;
-        for (int i = 0; i < 100; i = i + 2) {
+        for (int i = 1; i < 100; i = i + 2) {
 //            System.out.println(i);
             even++;
         }
