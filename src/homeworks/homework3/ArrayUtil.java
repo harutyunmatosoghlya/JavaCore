@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class ArrayUtil {
     public static void main(String[] args) {
-//        int[] numbers = new int[new Random().nextInt(1, 20)];
-//        for (int i = 0; i < numbers.length; i++) {
-//            numbers[i] = new Random().nextInt(-20, 20);
-//        }
-        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8};
+        //        int[] numbers = {1, 6, 3, 9, 15, 52, -3, 5, 8};
+        int[] numbers = new int[new Random().nextInt(1, 40)];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = new Random().nextInt(-20, 20);
+        }
         System.out.print("Все элементы: ");
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");
