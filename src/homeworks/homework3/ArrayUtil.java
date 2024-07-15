@@ -29,7 +29,7 @@ public class ArrayUtil {
         } else if (numbers.length % 2 == 1) {
             System.out.println("Среднее значение массива: " + numbers[numbers.length / 2]);
         } else {
-            System.out.println("Среднее значение массива: " + numbers[(numbers.length / 2) - 1]
+            System.out.println("Среднее элемент массива: " + numbers[(numbers.length / 2) - 1]
                     + ", " + numbers[numbers.length / 2]);
         }
         int even = 0;
