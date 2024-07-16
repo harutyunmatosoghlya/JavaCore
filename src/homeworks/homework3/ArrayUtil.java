@@ -18,7 +18,7 @@ public class ArrayUtil {
         System.out.println("Последний элемент: " + numbers[numbers.length - 1]);
         System.out.println("Длина массива: " + numbers.length);
         int min = numbers[0];
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 1; i < numbers.length; i++) {
             if (min > numbers[i]) {
                 min = numbers[i];
             }
