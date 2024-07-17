@@ -25,11 +25,11 @@ public class ArrayUtil {
         }
         System.out.println("Мельчайший элемент: " + min + "\n");
         if (numbers.length <= 2) {
-            System.out.println("В массиве мало элементов для среднего значения.\n");
+            System.out.println("В массиве мало элементов.\n");
         } else if (numbers.length % 2 == 1) {
-            System.out.println("Среднее значение массива: " + numbers[numbers.length / 2] + "\n");
+            System.out.println("Средний элемент массива: " + numbers[numbers.length / 2] + "\n");
         } else {
-            System.out.println("Среднее элемент массива: " + numbers[(numbers.length / 2) - 1]
+            System.out.println("Средние элементы массива: " + numbers[(numbers.length / 2) - 1]
                     + ", " + numbers[numbers.length / 2] + "\n");
         }
         int even = 0;
