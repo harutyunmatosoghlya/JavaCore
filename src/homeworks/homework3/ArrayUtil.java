@@ -10,8 +10,8 @@ public class ArrayUtil {
             numbers[i] = new Random().nextInt(-20, 20);
         }
         System.out.print("Все элементы: ");
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
         System.out.println();
         System.out.println("\nПервый элемент: " + numbers[0] + "\n");
@@ -33,22 +33,22 @@ public class ArrayUtil {
                     + ", " + numbers[numbers.length / 2] + "\n");
         }
         int even = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 == 0) {
+        for (int number : numbers) {
+            if (number % 2 == 0) {
                 even++;
             }
         }
         System.out.println("Количество четных элементов в массиве: " + even + "\n");
         int odd = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] % 2 != 0) {
+        for (int number : numbers) {
+            if (number % 2 != 0) {
                 odd++;
             }
         }
         System.out.println("Количество нечетных элементов в массиве: " + odd + "\n");
         int sum = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum += numbers[i];
+        for (int number : numbers) {
+            sum += number;
         }
         System.out.println("Cумма всех элементов: " + sum + "\n");
         double average = (double) sum / numbers.length;

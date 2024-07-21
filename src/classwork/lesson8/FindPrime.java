@@ -1,8 +1,5 @@
 package classwork.lesson8;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class FindPrime {
     public static void main(String[] args) {
         int num;

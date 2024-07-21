@@ -1,7 +1,10 @@
 package classwork.lesson8;
 
+import java.util.Scanner;
+
 public class Menu {
     public static void main(String[] args) throws java.io.IOException {
+        Scanner scanner = new Scanner(System.in);
         char chose;
         do {
             System.out.println("Спрвака:");
@@ -11,7 +14,8 @@ public class Menu {
             System.out.println("         4. do-while");
             System.out.println("         5. for");
             System.out.println("Выберите нужный пункт:");
-            chose = (char) System.in.read();
+//            chose = (char) System.in.read();
+            chose = scanner.next().charAt(0);
         } while (chose < '1' || chose > '5');
         System.out.println();
         switch (chose) {
