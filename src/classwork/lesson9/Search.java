@@ -11,7 +11,8 @@ public class Search {
                 break;
             }
         }
-        if (found)
+        if (found) {
             System.out.println("Знaчeниe найдено!");
+        }
     }
 }
