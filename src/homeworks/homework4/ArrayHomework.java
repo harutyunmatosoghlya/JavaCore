@@ -13,6 +13,7 @@ public class ArrayHomework {
         arrayHomeworkTools.arrayCreate();
         arrayHomeworkTools.all();
         arrayHomeworkTools.count();
+        arrayHomeworkTools.count(5);
         arrayHomeworkTools.revers();
         System.out.println("\nПовторения: " + arrayHomeworkTools.countElements());
         System.out.print("Гластные: " + arrayHomeworkTools.vowelLetters());
