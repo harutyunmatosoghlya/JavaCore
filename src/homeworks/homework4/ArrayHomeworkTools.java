@@ -60,13 +60,13 @@ public class ArrayHomeworkTools {
 
     int countElements() {
         int doublicatecount = 0;
-        int[] doublicatearray = new int[numbers.length];
+        int[] doubleheader = new int[numbers.length];
         int doubliceatearrayindex = 0;
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[i] == numbers[j]) {
                     boolean existDuplicate = false;
-                    for (int x : doublicatearray) {
+                    for (int x : doubleheader) {
                         if (numbers[i] == x) {
                             existDuplicate = true;
                             break;
@@ -74,7 +74,7 @@ public class ArrayHomeworkTools {
                     }
                     if (!existDuplicate) {
                         doublicatecount++;
-                        doublicatearray[doubliceatearrayindex++] = numbers[i];
+                        doubleheader[doubliceatearrayindex++] = numbers[i];
                         break;
                     }
                 }
