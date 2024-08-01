@@ -7,7 +7,7 @@ public class ArrayHomeworkTools {
 
     int[] numbers = new int[new Random().nextInt(1, 40)];
 
-    void arrayCreate() {
+    ArrayHomeworkTools() {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = new Random().nextInt(-20, 20);
         }
@@ -23,25 +23,14 @@ public class ArrayHomeworkTools {
         }
     }
 
-    void count() {
-        int n = numbers[0];
+    int count(int n) {
         int count = 0;
         for (int number : numbers) {
             if (number == n) {
                 count++;
             }
         }
-        System.out.println("\nколичество " + n + " в массиве = " + count);
-    }
-
-    void count(int n) {
-        int count = 0;
-        for (int number : numbers) {
-            if (number == n) {
-                count++;
-            }
-        }
-        System.out.println("\nколичество " + n + " в массиве = " + count);
+        return count;
     }
 
     void revers() {

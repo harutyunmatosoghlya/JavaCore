@@ -5,7 +5,7 @@ import java.util.Random;
 public class ArrayUtilTools {
     int[] numbers = new int[new Random().nextInt(1, 40)];
 
-    void arrayCreate() {
+    ArrayUtilTools() {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = new Random().nextInt(-20, 20);
         }

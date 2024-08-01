@@ -3,7 +3,6 @@ package homeworks.homework3;
 public class ArrayUtil {
     public static void main(String[] args) {
         ArrayUtilTools arrayUtilTools = new ArrayUtilTools();
-        arrayUtilTools.arrayCreate();
         arrayUtilTools.all();
         System.out.print("\nПервый элемент: " + arrayUtilTools.numbers[0]);
         System.out.print("\nПоследный элемент: " + arrayUtilTools.last());
