@@ -18,7 +18,7 @@ public class DynamicArray {
     }
 
     public int getByIndex(int index) {
-        if (index < size) {
+        if (index < size && index >= 0) {
             return array[index];
         } else return -1;
     }
@@ -31,7 +31,7 @@ public class DynamicArray {
     }
 
     public void deleteByIndex(int index) {
-        if (index < size) {
+        if (index < size && index >= 0) {
             for (int i = index + 1; i < size; i++) {
                 array[i - 1] = array[i];
             }
@@ -43,7 +43,7 @@ public class DynamicArray {
     }
 
     public void set(int index, int value) {
-        if (index < size) {
+        if (index < size && index >= 0) {
             array[index] = value;
         } else {
             System.out.println("такого индекса нет");
@@ -51,7 +51,7 @@ public class DynamicArray {
     }
 
     public void add(int index, int value) {
-        if (index < size) {
+        if (index < size && index >= 0) {
             for (int i = size; i > index; i--) {
                 array[i] = array[i - 1];
             }
@@ -71,10 +71,11 @@ public class DynamicArray {
         }
         return right;
     }
+
     public int getIndexByValue(int value) {
         int right = -1;
         for (int i = 0; i < size; i++) {
-            if (array[i] == value){
+            if (array[i] == value) {
                 right = i;
                 break;
             }
