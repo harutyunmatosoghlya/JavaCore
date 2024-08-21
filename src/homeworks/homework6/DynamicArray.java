@@ -11,6 +11,21 @@ public class DynamicArray {
         array[size++] = value;
     }
 
+    public void add(int index, int value) {
+        if (size == 0){
+            System.out.println("такого индекса нет");
+            return;
+        }
+        if (size >= array.length) {
+            extend();
+        }
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
+        }
+        array[index] = value;
+        size++;
+    }
+
     private void extend() {
         int[] longerArray = new int[array.length + 10];
         System.arraycopy(array, 0, longerArray, 0, array.length);
@@ -44,17 +59,6 @@ public class DynamicArray {
 
     public void set(int index, int value) {
         if (index < size && index >= 0) {
-            array[index] = value;
-        } else {
-            System.out.println("такого индекса нет");
-        }
-    }
-
-    public void add(int index, int value) {
-        if (index < size && index >= 0) {
-            for (int i = size; i > index; i--) {
-                array[i] = array[i - 1];
-            }
             array[index] = value;
         } else {
             System.out.println("такого индекса нет");
