@@ -10,49 +10,45 @@ public class BraceChecker {
         this.text = text;
     }
 
-    public void chack() {
+    public void check() {
 
         for (int i = 0; i < text.length(); i++) {
             char c;
-            char last;
-            int pop;
+            Brace pop;
             c = text.charAt(i);
             switch (c) {
                 case '(':
                 case '[':
                 case '{':
-                    stack.push(c);
+                    stack.push(new Brace(c, i));
                     break;
                 case ')':
                     pop = stack.pop();
-                    if (pop == 0) {
-                        System.out.println("Error: closed '" + c + "' but don't opened at" + i);
+                    if (pop == null) {
+                        System.out.println("Error: closed '" + c + "' but don't opened at " + i);
                     } else {
-                        last = (char) pop;
-                        if (last != '(') {
-                            System.out.println("Error: closed '" + c + "' but opened '" + last + "' at " + i);
+                        if (pop.getBrace() != '(') {
+                            System.out.println("Error: closed '" + c + "' but opened '" + pop.getBrace() + "' at " + i);
                         }
                     }
                     break;
                 case ']':
                     pop = stack.pop();
-                    if (pop == 0) {
+                    if (pop == null) {
                         System.out.println("Error: closed '" + c + "' but don't opened at " + i);
                     } else {
-                        last = (char) pop;
-                        if (last != '[') {
-                            System.out.println("Error: closed '" + c + "' but opened '" + last + "' at " + i);
+                        if (pop.getBrace() != '[') {
+                            System.out.println("Error: closed '" + c + "' but opened '" + pop.getBrace() + "' at " + i);
                         }
                     }
                     break;
                 case '}':
                     pop = stack.pop();
-                    if (pop == 0) {
+                    if (pop == null) {
                         System.out.println("Error: closed '" + c + "' but don't opened at" + i);
                     } else {
-                        last = (char) pop;
-                        if (last != '{') {
-                            System.out.println("Error: closed '" + c + "' but opened '" + last + "' at " + i);
+                        if (pop.getBrace() != '{') {
+                            System.out.println("Error: closed '" + c + "' but opened '" + pop.getBrace() + "' at " + i);
                         }
                     }
                     break;
@@ -60,7 +56,7 @@ public class BraceChecker {
 
         }
         while (!stack.isEmpty()) {
-            System.out.println("Error: closed '" + (char) stack.pop() + "' but don't opened");
+            System.out.println("Error: opened '" + stack.pop().getBrace() + "' but don't closed at " + stack.pop().getIndex());
         }
     }
 }
