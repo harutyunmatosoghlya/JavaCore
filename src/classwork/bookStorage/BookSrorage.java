@@ -1,19 +1,17 @@
 package classwork.bookStorage;
 
-import java.util.Locale;
-
 public class BookSrorage {
     private Book[] books = new Book[10];
     private int size;
 
     public void add(Book book) {
         if (books.length == size) {
-            exendsStorage();
+            extendsStorage();
         }
         books[size++] = book;
     }
 
-    private void exendsStorage() {
+    private void extendsStorage() {
         Book[] tmp = new Book[size + 10];
         System.arraycopy(books, 0, tmp, 0, size);
         books = tmp;

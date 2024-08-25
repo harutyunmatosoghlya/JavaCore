@@ -1,9 +1,7 @@
 package homeworks.homework7;
 
-import classwork.lesson12.Stack;
-
 public class BraceChecker {
-    Stack stack = new Stack();
+    StackBrace stackBrace = new StackBrace();
     private String text;
 
     public BraceChecker(String text) {
@@ -20,10 +18,10 @@ public class BraceChecker {
                 case '(':
                 case '[':
                 case '{':
-                    stack.push(new Brace(c, i));
+                    stackBrace.push(new Brace(c, i));
                     break;
                 case ')':
-                    pop = stack.pop();
+                    pop = stackBrace.pop();
                     if (pop == null) {
                         System.out.println("Error: closed '" + c + "' but don't opened at " + i);
                     } else {
@@ -33,7 +31,7 @@ public class BraceChecker {
                     }
                     break;
                 case ']':
-                    pop = stack.pop();
+                    pop = stackBrace.pop();
                     if (pop == null) {
                         System.out.println("Error: closed '" + c + "' but don't opened at " + i);
                     } else {
@@ -43,7 +41,7 @@ public class BraceChecker {
                     }
                     break;
                 case '}':
-                    pop = stack.pop();
+                    pop = stackBrace.pop();
                     if (pop == null) {
                         System.out.println("Error: closed '" + c + "' but don't opened at" + i);
                     } else {
@@ -55,8 +53,8 @@ public class BraceChecker {
             }
 
         }
-        while (!stack.isEmpty()) {
-            System.out.println("Error: opened '" + stack.pop().getBrace() + "' but don't closed at " + stack.pop().getIndex());
+        while (!stackBrace.isEmpty()) {
+            System.out.println("Error: opened '" + stackBrace.pop().getBrace() + "' but don't closed at " + stackBrace.pop().getIndex());
         }
     }
 }
