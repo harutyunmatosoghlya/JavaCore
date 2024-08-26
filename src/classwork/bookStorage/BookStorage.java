@@ -4,11 +4,6 @@ public class BookStorage {
     private Book[] books = new Book[10];
     private int size;
 
-    public BookStorage() {
-        size = 0;
-    }
-
-
     public void add(Book book) {
         if (books.length == size) {
             extendsStorage();
@@ -53,7 +48,7 @@ public class BookStorage {
     }
 
     public void deleteBook(int choose) {
-        if (choose < size && choose >= 1) {
+        if (choose < size && choose >= 0) {
             for (int i = choose + 1; i < size; i++) {
                 books[i - 1] = books[i];
             }
