@@ -1,4 +1,4 @@
-package GPT.find;
+package tasks.find;
 
 public class FindGame {
     public static void main(String[] args) {

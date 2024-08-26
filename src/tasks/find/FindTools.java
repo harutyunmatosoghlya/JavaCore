@@ -1,4 +1,4 @@
-package GPT.find;
+package tasks.find;
 
 import java.util.Random;
 import java.util.Scanner;
