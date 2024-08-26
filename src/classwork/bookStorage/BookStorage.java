@@ -1,8 +1,13 @@
 package classwork.bookStorage;
 
-public class BookSrorage {
+public class BookStorage {
     private Book[] books = new Book[10];
     private int size;
+
+    public BookStorage() {
+        size = 0;
+    }
+
 
     public void add(Book book) {
         if (books.length == size) {
@@ -19,7 +24,7 @@ public class BookSrorage {
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(books[i]);
+            System.out.println(i + 1 + ": " + books[i]);
         }
     }
 
@@ -44,6 +49,17 @@ public class BookSrorage {
             if (books[i].getAuthorName().toUpperCase().contains(keywordAuthorName.toUpperCase())) {
                 System.out.println(books[i]);
             }
+        }
+    }
+
+    public void deleteBook(int choose) {
+        if (choose < size && choose >= 1) {
+            for (int i = choose + 1; i < size; i++) {
+                books[i - 1] = books[i];
+            }
+            size--;
+        } else {
+            System.out.println("Wrong index");
         }
     }
 }
