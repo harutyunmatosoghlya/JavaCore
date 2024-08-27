@@ -18,6 +18,7 @@ public class Library {
             String command = scanner.nextLine();
             switch (command) {
                 case "0":
+                    System.out.print("The application has shut down.");
                     isRun = false;
                     break;
                 case "1":
