@@ -60,7 +60,7 @@ public class BookStorage {
 
     public void searchBookByPrice(double keywordPrice) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getPrice() < keywordPrice){
+            if (books[i].getPrice() <= keywordPrice){
                 System.out.println(books[i]);
             }
         }
