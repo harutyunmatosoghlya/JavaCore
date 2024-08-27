@@ -11,10 +11,8 @@ public class Library {
             System.out.println("Please input '0' for exit.");
             System.out.println("Please input '1' for add.");
             System.out.println("Please input '2' for print all books.");
-            System.out.println("Please input '3' for search book by book ID.");
-            System.out.println("Please input '4' for search book by book title.");
-            System.out.println("Please input '5' for search book by book author name.");
-            System.out.println("Please input '6' for deleted book.");
+            System.out.println("Please input '3' for search book.");
+            System.out.println("Please input '4' for deleted book.");
             String command = scanner.nextLine();
             switch (command) {
                 case "0":
@@ -38,21 +36,37 @@ public class Library {
                     bookStorage.print();
                     break;
                 case "3":
-                    System.out.print("Please input ID-KEYWORD: ");
-                    String keywordID = scanner.nextLine();
-                    bookStorage.searchBookByID(keywordID);
+                    System.out.println("Please input '1' for search book by book ID.");
+                    System.out.println("Please input '2' for search book by book title.");
+                    System.out.println("Please input '3' for search book by book author name.");
+                    System.out.println("Please input '4' for search book by book price.");
+                    String search = scanner.nextLine();
+                    switch (search){
+                        case "1":
+                            System.out.print("Please input ID-KEYWORD: ");
+                            String keywordID = scanner.nextLine();
+                            bookStorage.searchBookByID(keywordID);
+                            break;
+                        case "2":
+                            System.out.print("Please input TITLE-KEYWORD: ");
+                            String keywordTitle = scanner.nextLine();
+                            bookStorage.searchBookByTitle(keywordTitle);
+                            break;
+                        case "3":
+                            System.out.print("Please input AUTHOR-NAME-KEYWORD: ");
+                            String keywordAuthorName = scanner.nextLine();
+                            bookStorage.searchBookByAuthorName(keywordAuthorName);
+                            break;
+                        case "4":
+                            System.out.print("Please input PRICE: ");
+                            double keywordPrice = Double.parseDouble(scanner.nextLine());
+                            bookStorage.searchBookByPrice(keywordPrice);
+                            break;
+                        default:
+                            System.out.println("Wrong command");
+                    }
                     break;
                 case "4":
-                    System.out.print("Please input TITLE-KEYWORD: ");
-                    String keywordTitle = scanner.nextLine();
-                    bookStorage.searchBookByTitle(keywordTitle);
-                    break;
-                case "5":
-                    System.out.print("Please input AUTHOR-NAME-KEYWORD: ");
-                    String keywordAuthorName = scanner.nextLine();
-                    bookStorage.searchBookByAuthorName(keywordAuthorName);
-                    break;
-                case "6":
                     bookStorage.print();
                     System.out.print("choose BOOK-NUMBER: ");
                     int choose = Integer.parseInt(scanner.nextLine());
