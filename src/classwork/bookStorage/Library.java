@@ -30,7 +30,6 @@ public class Library {
                     double price = Double.parseDouble(scanner.nextLine());
                     Book book = new Book(id, title, authorName, price);
                     bookStorage.add(book);
-                    System.out.println("Book added!");
                     break;
                 case "2":
                     bookStorage.print();

@@ -8,7 +8,14 @@ public class BookStorage {
         if (books.length == size) {
             extendsStorage();
         }
+        for (int i = 0; i < size; i++) {
+            if (books[i].getId().equals(book.getId())  || books[i].getTitle().equals(book.getTitle())){
+                System.out.println("there is already such a book");
+                return;
+            }
+        }
         books[size++] = book;
+        System.out.println("Book added!");
     }
 
     private void extendsStorage() {
