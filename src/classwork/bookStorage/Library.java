@@ -11,6 +11,10 @@ public class Library {
     private static final String SEARCH = "3";
     private static final String DELETE = "5";
     private static final String UPDATE = "4";
+    private static final String SEARCH_ID = "1";
+    private static final String SEARCH_TITLE = "2";
+    private static final String SEARCH_AUTHOR_NAME = "3";
+    private static final String SEARCH_PRICE = "4";
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -32,16 +36,16 @@ public class Library {
                     printSearchCommands();
                     String search = scanner.nextLine();
                     switch (search) {
-                        case "1":
+                        case SEARCH_ID:
                             searchBookByID();
                             break;
-                        case "2":
+                        case SEARCH_TITLE:
                             searchBookByTitle();
                             break;
-                        case "3":
+                        case SEARCH_AUTHOR_NAME:
                             searchBookByAuthorName();
                             break;
-                        case "4":
+                        case SEARCH_PRICE:
                             searchBookByPrice();
                             break;
                         default:
@@ -52,16 +56,19 @@ public class Library {
                     updateBook();
                     break;
                 case DELETE:
-                    bookStorage.print();
-                    System.out.print("choose BOOK-NUMBER: ");
-                    int choose = Integer.parseInt(scanner.nextLine());
-                    choose -= 1;
-                    bookStorage.deleteBook(choose);
+                    deleteBook();
                     break;
                 default:
                     System.out.println("Wrong command");
             }
         }
+    }
+
+    private static void deleteBook() {
+        bookStorage.print();
+        System.out.print("choose BOOK-ID: ");
+        String id = scanner.nextLine();
+        bookStorage.deleteBook(id);
     }
 
     private static void updateBook() {
@@ -76,6 +83,8 @@ public class Library {
             String authorName = scanner.nextLine();
             System.out.print("Please input book PRICE: ");
             String priceStr = scanner.nextLine();
+            System.out.print("Please input book QUANTITY: ");
+            String quantityStr = scanner.nextLine();
             if (title != null && !title.isEmpty()) {
                 bookById.setTitle(title);
             }
@@ -85,13 +94,18 @@ public class Library {
             if (priceStr != null && !priceStr.isEmpty()) {
                 bookById.setPrice(Double.parseDouble(priceStr));
             }
+            if (quantityStr != null && !quantityStr.isEmpty()) {
+                bookById.setQuantity(Integer.parseInt(quantityStr));
+            }
         }
     }
 
     private static void searchBookByPrice() {
-        System.out.print("Please input PRICE: ");
-        double keywordPrice = Double.parseDouble(scanner.nextLine());
-        bookStorage.searchBookByPrice(keywordPrice);
+        System.out.print("Please input MAXIMUM-PRICE: ");
+        double priceMax = Double.parseDouble(scanner.nextLine());
+        System.out.print("Please input MINIMUM-PRICE: ");
+        double priceMin = Double.parseDouble(scanner.nextLine());
+        bookStorage.searchBookByPrice(priceMax, priceMin);
     }
 
     private static void searchBookByAuthorName() {
@@ -121,15 +135,17 @@ public class Library {
         String authorName = scanner.nextLine();
         System.out.print("Please input book PRICE: ");
         double price = Double.parseDouble(scanner.nextLine());
-        Book book = new Book(id, title, authorName, price);
+        System.out.print("Please input book QUANTITY: ");
+        int quantity = Integer.parseInt(scanner.nextLine());
+        Book book = new Book(id, title, authorName, price, quantity);
         bookStorage.add(book);
     }
 
     private static void printSearchCommands() {
-        System.out.println("Please input '1' for search book by book ID.");
-        System.out.println("Please input '2' for search book by book title.");
-        System.out.println("Please input '3' for search book by book author name.");
-        System.out.println("Please input '4' for search book by book price.");
+        System.out.println("Please input '" + SEARCH_ID + "' for search book by book ID.");
+        System.out.println("Please input '" + SEARCH_TITLE + "' for search book by book title.");
+        System.out.println("Please input '" + SEARCH_AUTHOR_NAME + "' for search book by book author name.");
+        System.out.println("Please input '" + SEARCH_PRICE + "' for search book by book price range.");
     }
 
     private static void printCommands() {

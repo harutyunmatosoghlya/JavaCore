@@ -9,8 +9,9 @@ public class BookStorage {
             extendsStorage();
         }
         for (int i = 0; i < size; i++) {
-            if (books[i].getId().equals(book.getId()) && books[i].getTitle().equals(book.getTitle())) {
-                System.out.println("there is already such a book");
+            if (books[i].getId().equals(book.getId())) {
+                int quantity = books[i].getQuantity() + book.getQuantity();
+                books[i].setQuantity(quantity);
                 return;
             }
         }
@@ -54,20 +55,20 @@ public class BookStorage {
         }
     }
 
-    public void deleteBook(int choose) {
-        if (choose < size && choose >= 0) {
-            for (int i = choose + 1; i < size; i++) {
-                books[i - 1] = books[i];
+    public void deleteBook(String id) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].getId().equals(id)) {
+                for (int j = i + 1; j < size; j++) {
+                    books[j - 1] = books[j];
+                }
+                size--;
             }
-            size--;
-        } else {
-            System.out.println("Wrong index");
         }
     }
 
-    public void searchBookByPrice(double keywordPrice) {
+    public void searchBookByPrice(double priceMax, double priceMin) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getPrice() <= keywordPrice) {
+            if (books[i].getPrice() <= priceMax && books[i].getPrice() >= priceMin) {
                 System.out.println(books[i]);
             }
         }

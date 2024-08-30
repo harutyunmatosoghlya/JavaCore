@@ -7,12 +7,14 @@ public class Book {
     private String title;
     private String authorName;
     private double price;
+    private int quantity;
 
-    public Book(String id, String title, String authorName, double price) {
+    public Book(String id, String title, String authorName, double price, int quantity) {
         this.id = id;
         this.title = title;
         this.authorName = authorName;
         this.price = price;
+        this.quantity = quantity;
     }
 
     public Book() {
@@ -47,7 +49,15 @@ public class Book {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+            this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+            this.quantity = quantity;
     }
 
     @Override
@@ -55,12 +65,12 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return Double.compare(price, book.price) == 0 && Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(authorName, book.authorName);
+        return Double.compare(price, book.price) == 0 && quantity == book.quantity && Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(authorName, book.authorName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, authorName, price);
+        return Objects.hash(id, title, authorName, price, quantity);
     }
 
     @Override
@@ -70,6 +80,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", authorName='" + authorName + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
     }
 }
