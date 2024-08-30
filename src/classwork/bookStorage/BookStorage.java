@@ -10,8 +10,7 @@ public class BookStorage {
         }
         for (int i = 0; i < size; i++) {
             if (books[i].getId().equals(book.getId())) {
-                int quantity = books[i].getQuantity() + book.getQuantity();
-                books[i].setQuantity(quantity);
+                System.out.println("this ID already exists");
                 return;
             }
         }
