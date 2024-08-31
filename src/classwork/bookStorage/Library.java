@@ -33,24 +33,7 @@ public class Library {
                     bookStorage.print();
                     break;
                 case SEARCH:
-                    printSearchCommands();
-                    String search = scanner.nextLine();
-                    switch (search) {
-                        case SEARCH_ID:
-                            searchBookByID();
-                            break;
-                        case SEARCH_TITLE:
-                            searchBookByTitle();
-                            break;
-                        case SEARCH_AUTHOR_NAME:
-                            searchBookByAuthorName();
-                            break;
-                        case SEARCH_PRICE:
-                            searchBookByPrice();
-                            break;
-                        default:
-                            System.out.println("Wrong command");
-                    }
+                    searchBook();
                     break;
                 case UPDATE:
                     updateBook();
@@ -61,6 +44,27 @@ public class Library {
                 default:
                     System.out.println("Wrong command");
             }
+        }
+    }
+
+    private static void searchBook() {
+        printSearchCommands();
+        String search = scanner.nextLine();
+        switch (search) {
+            case SEARCH_ID:
+                searchBookByID();
+                break;
+            case SEARCH_TITLE:
+                searchBookByTitle();
+                break;
+            case SEARCH_AUTHOR_NAME:
+                searchBookByAuthorName();
+                break;
+            case SEARCH_PRICE:
+                searchBookByPrice();
+                break;
+            default:
+                System.out.println("Wrong command");
         }
     }
 
