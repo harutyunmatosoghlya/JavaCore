@@ -7,38 +7,38 @@ public class Cycle {
 
     public void cycle() {
         System.out.print("введите каличевство: ");
-        int count = Integer.parseInt(scanner.nextLine());
+        int quantity = Integer.parseInt(scanner.nextLine());
         System.out.print("введите текст: ");
         String text = scanner.nextLine();
-        for (int i = 1; i <= count; i++) {
+        for (int i = 1; i <= quantity; i++) {
             System.out.print(i + ": " + text + ", ");
         }
     }
 
-    public void cycle(int count) {
+    public void cycle(int quantity) {
         System.out.print("введите текст: ");
         String text = scanner.nextLine();
-        for (int i = 1; i <= count; i++) {
+        for (int i = 1; i <= quantity; i++) {
             System.out.print(i + ": " + text + ", ");
         }
     }
 
     public void cycle(String text) {
         System.out.print("введите каличевство: ");
-        int count = Integer.parseInt(scanner.nextLine());
-        for (int i = 1; i <= count; i++) {
+        int quantity = Integer.parseInt(scanner.nextLine());
+        for (int i = 1; i <= quantity; i++) {
             System.out.print(i + ": " + text + ", ");
         }
     }
 
-    public void cycle(int count, String text) {
-        for (int i = 1; i <= count; i++) {
+    public void cycle(int quantity, String text) {
+        for (int i = 1; i <= quantity; i++) {
             System.out.print(i + ": " + text + ", ");
         }
     }
 
-    public void cycle(String text, int count) {
-        for (int i = 1; i <= count; i++) {
+    public void cycle(String text, int quantity) {
+        for (int i = 1; i <= quantity; i++) {
             System.out.print(i + ": " + text + ", ");
         }
     }
