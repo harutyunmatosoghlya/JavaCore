@@ -29,19 +29,19 @@ public class FindTools {
     }
 
     public int getUserGuess() {
-        System.out.print("Введите ваше предположение: ");
+        System.out.print("\u001B[35mВведите ваше предположение: \u001B[0m");
         return scanner.nextInt();
     }
 
     public boolean checkGuess(int guess, int target) {
         if (guess > target) {
-            System.out.println("Слишком много! Попробуйте еще раз.");
+            System.out.println("\u001B[34mСлишком много! Попробуйте еще раз.\u001B[0m");
             return false;
         } else if (guess < target) {
-            System.out.println("Слишком мало! Попробуйте еще раз.");
+            System.out.println("\u001B[36mСлишком мало! Попробуйте еще раз.\u001B[0m");
             return false;
         } else {
-            System.out.println("Поздравляем! Вы угадали число.");
+            System.out.print("\u001B[32mПоздравляем! Вы угадали число.\u001B[0m");
             return true;
         }
     }
