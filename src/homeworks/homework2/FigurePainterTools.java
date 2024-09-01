@@ -10,52 +10,19 @@ public class FigurePainterTools {
         }
     }
 
+    void firstFigure() {
+        firstFigure(5, '*');
+    }
+
     void firstFigure(int n) {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+        firstFigure(n, '*');
     }
 
     void firstFigure(char c) {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
+        firstFigure(5, c);
     }
 
-    void firstFigure() {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-    }
-
-    void twiseFigure() {
-        for (int i = 5; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-    }
-
-    void twiseFigure(int n) {
-        for (int i = n; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-    }
-
-    void twiseFigure(int n, char c) {
+    void twiceFigure(int n, char c) {
         for (int i = n; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 System.out.print(c + " ");
@@ -64,49 +31,16 @@ public class FigurePainterTools {
         }
     }
 
-    void twiseFigure(char c) {
-        for (int i = 5; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
+    void twiceFigure() {
+        twiceFigure(5, '*');
     }
 
-    void thirdFigure() {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 5; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+    void twiceFigure(int n) {
+        twiceFigure(n, '*');
     }
 
-    void thirdFigure(int n) {
-        for (int i = 1; i <= n; i++) {
-            for (int j = n; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-    }
-
-    void thirdFigure(char c) {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 5; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
+    void twiceFigure(char c) {
+        twiceFigure(5, c);
     }
 
     void thirdFigure(int n, char c) {
@@ -121,16 +55,16 @@ public class FigurePainterTools {
         }
     }
 
-    void fourthFigure() {
-        for (int i = 5; i > 0; i--) {
-            for (int j = 5; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 0; k < i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+    void thirdFigure() {
+        thirdFigure(5, '*');
+    }
+
+    void thirdFigure(int n) {
+        thirdFigure(n, '*');
+    }
+
+    void thirdFigure(char c) {
+        thirdFigure(5, c);
     }
 
     void fourthFigure(int n, char c) {
@@ -145,49 +79,16 @@ public class FigurePainterTools {
         }
     }
 
+    void fourthFigure() {
+        fourthFigure(5, '*');
+    }
+
     void fourthFigure(int n) {
-        for (int i = n; i > 0; i--) {
-            for (int j = n; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 0; k < i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+        fourthFigure(n, '*');
     }
 
     void fourthFigure(char c) {
-        for (int i = 5; i > 0; i--) {
-            for (int j = 5; j > i; j--) {
-                System.out.print("  ");
-            }
-            for (int k = 0; k < i; k++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    void fifthFigure() {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 5 - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-        for (int i = 4; i >= 1; i--) {
-            for (int j = 1; j <= 5 - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+        fourthFigure(5, c);
     }
 
     void fifthFigure(int n, char c) {
@@ -211,45 +112,16 @@ public class FigurePainterTools {
         }
     }
 
+    void fifthFigure() {
+        fifthFigure(5, '*');
+    }
+
+
     void fifthFigure(int n) {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-        for (int i = n - 1; i >= 1; i--) {
-            for (int j = 1; j <= n - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+        fifthFigure(n, '*');
     }
 
     void fifthFigure(char c) {
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 5 - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
-        for (int i = 4; i >= 1; i--) {
-            for (int j = 1; j <= 5 - i; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print(c + " ");
-            }
-            System.out.println();
-        }
+        fifthFigure(5, c);
     }
 }

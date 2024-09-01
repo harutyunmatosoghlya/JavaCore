@@ -5,7 +5,7 @@ public class FigurePainter {
         FigurePainterTools figurePainterTools = new FigurePainterTools();
         figurePainterTools.firstFigure();
         System.out.println();
-        figurePainterTools.twiseFigure();
+        figurePainterTools.twiceFigure();
         System.out.println();
         figurePainterTools.thirdFigure();
         System.out.println();
