@@ -15,6 +15,11 @@ public class Library {
     private static final String SEARCH_TITLE = "2";
     private static final String SEARCH_AUTHOR_NAME = "3";
     private static final String SEARCH_PRICE = "4";
+    private static final String UPDATE_TITLE = "1";
+    private static final String UPDATE_AUTHOR_NAME = "2";
+    private static final String UPDATE_PRICE = "3";
+    private static final String UPDATE_QUANTITY = "4";
+    private static final String UPDATE_ALL = "5";
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -76,31 +81,86 @@ public class Library {
     }
 
     private static void updateBook() {
-        bookStorage.print();
         System.out.println("Please input book ID");
         String bookId = scanner.nextLine();
         Book bookById = bookStorage.getBookByID(bookId);
         if (bookById != null) {
-            System.out.print("Please input book TITLE: ");
-            String title = scanner.nextLine();
-            System.out.print("Please input book AUTHOR-NAME: ");
-            String authorName = scanner.nextLine();
-            System.out.print("Please input book PRICE: ");
-            String priceStr = scanner.nextLine();
-            System.out.print("Please input book QUANTITY: ");
-            String quantityStr = scanner.nextLine();
-            if (title != null && !title.isEmpty()) {
-                bookById.setTitle(title);
+            printUpdateCommands();
+            String updateCommands = scanner.nextLine();
+            switch (updateCommands) {
+                case UPDATE_TITLE:
+                    updateBookTitle(bookById);
+                    break;
+                case UPDATE_AUTHOR_NAME:
+                    updateBookAuthorName(bookById);
+                    break;
+                case UPDATE_PRICE:
+                    updateBookPrice(bookById);
+                    break;
+                case UPDATE_QUANTITY:
+                    updateBookQuantity(bookById);
+                    break;
+                case UPDATE_ALL:
+                    updateBookAll(bookById);
+                    break;
+                default:
+                    System.out.println("Wrong command");
             }
-            if (authorName != null && !authorName.isEmpty()) {
-                bookById.setAuthorName(authorName);
-            }
-            if (priceStr != null && !priceStr.isEmpty()) {
-                bookById.setPrice(Double.parseDouble(priceStr));
-            }
-            if (quantityStr != null && !quantityStr.isEmpty()) {
-                bookById.setQuantity(Integer.parseInt(quantityStr));
-            }
+        }
+    }
+
+    private static void updateBookQuantity(Book bookById) {
+        System.out.print("Please input book QUANTITY: ");
+        String quantityStr = scanner.nextLine();
+        if (quantityStr != null && !quantityStr.isEmpty()) {
+            bookById.setQuantity(Integer.parseInt(quantityStr));
+        }
+    }
+
+    private static void updateBookPrice(Book bookById) {
+        System.out.print("Please input book PRICE: ");
+        String priceStr = scanner.nextLine();
+        if (priceStr != null && !priceStr.isEmpty()) {
+            bookById.setPrice(Double.parseDouble(priceStr));
+        }
+    }
+
+    private static void updateBookAuthorName(Book bookById) {
+        System.out.print("Please input book AUTHOR-NAME: ");
+        String authorName = scanner.nextLine();
+        if (authorName != null && !authorName.isEmpty()) {
+            bookById.setAuthorName(authorName);
+        }
+    }
+
+    private static void updateBookTitle(Book bookById) {
+        System.out.print("Please input book TITLE: ");
+        String title = scanner.nextLine();
+        if (title != null && !title.isEmpty()) {
+            bookById.setTitle(title);
+        }
+    }
+
+    private static void updateBookAll(Book bookById) {
+        System.out.print("Please input book TITLE: ");
+        String title = scanner.nextLine();
+        System.out.print("Please input book AUTHOR-NAME: ");
+        String authorName = scanner.nextLine();
+        System.out.print("Please input book PRICE: ");
+        String priceStr = scanner.nextLine();
+        System.out.print("Please input book QUANTITY: ");
+        String quantityStr = scanner.nextLine();
+        if (title != null && !title.isEmpty()) {
+            bookById.setTitle(title);
+        }
+        if (authorName != null && !authorName.isEmpty()) {
+            bookById.setAuthorName(authorName);
+        }
+        if (priceStr != null && !priceStr.isEmpty()) {
+            bookById.setPrice(Double.parseDouble(priceStr));
+        }
+        if (quantityStr != null && !quantityStr.isEmpty()) {
+            bookById.setQuantity(Integer.parseInt(quantityStr));
         }
     }
 
@@ -143,6 +203,14 @@ public class Library {
         int quantity = Integer.parseInt(scanner.nextLine());
         Book book = new Book(id, title, authorName, price, quantity);
         bookStorage.add(book);
+    }
+
+    private static void printUpdateCommands() {
+        System.out.println("Please input '" + UPDATE_TITLE + "' for update book title.");
+        System.out.println("Please input '" + UPDATE_AUTHOR_NAME + "' for update book author name.");
+        System.out.println("Please input '" + UPDATE_PRICE + "' for update book price.");
+        System.out.println("Please input '" + UPDATE_QUANTITY + "' for update book quantity.");
+        System.out.println("Please input '" + UPDATE_ALL + "' for update all book.");
     }
 
     private static void printSearchCommands() {
