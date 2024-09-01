@@ -15,7 +15,6 @@ public class BookStorage {
             }
         }
         books[size++] = book;
-        System.out.println("Book added!");
     }
 
     private void extendsStorage() {
@@ -55,19 +54,29 @@ public class BookStorage {
     }
 
     public void deleteBook(String id) {
-        for (int i = 0; i < size; i++) {
-            if (books[i].getId().equals(id)) {
-                for (int j = i + 1; j < size; j++) {
-                    books[j - 1] = books[j];
-                }
-                size--;
+        int index = getBookIndexById(id);
+        if (index != -1) {
+            for (int i = index + 1; i < size; i++) {
+                books[i - 1] = books[i];
             }
+            size--;
         }
     }
 
-    public void searchBookByPrice(double priceMax, double priceMin) {
+    private int getBookIndexById(String id) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getPrice() <= priceMax && books[i].getPrice() >= priceMin) {
+            if (books[i].getId().equals(id)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void searchBookByPrice(double priceMax, double priceMin) {
+        double newMin = Math.min(priceMin, priceMax);
+        double newMax = Math.max(priceMax, priceMin);
+        for (int i = 0; i < size; i++) {
+            if (books[i].getPrice() <= newMax && books[i].getPrice() >= newMin) {
                 System.out.println(books[i]);
             }
         }

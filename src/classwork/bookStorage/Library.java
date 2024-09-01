@@ -2,29 +2,18 @@ package classwork.bookStorage;
 
 import java.util.Scanner;
 
-public class Library {
+public class Library implements Commands {
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
-    private static final String EXIT = "0";
-    private static final String ADD = "1";
-    private static final String PRINT = "2";
-    private static final String SEARCH = "3";
-    private static final String DELETE = "5";
-    private static final String UPDATE = "4";
-    private static final String SEARCH_ID = "1";
-    private static final String SEARCH_TITLE = "2";
-    private static final String SEARCH_AUTHOR_NAME = "3";
-    private static final String SEARCH_PRICE = "4";
-    private static final String UPDATE_TITLE = "1";
-    private static final String UPDATE_AUTHOR_NAME = "2";
-    private static final String UPDATE_PRICE = "3";
-    private static final String UPDATE_QUANTITY = "4";
-    private static final String UPDATE_ALL = "5";
 
     public static void main(String[] args) {
+        bookStorage.add(new Book("A001", "Book1", "Author1", 50, 5));
+        bookStorage.add(new Book("A002", "Book2", "Author2", 100, 10));
+        bookStorage.add(new Book("A003", "Book3", "Author3", 150, 15));
+        bookStorage.add(new Book("A004", "Book4", "Author4", 200, 20));
         boolean isRun = true;
         while (isRun) {
-            printCommands();
+            Commands.printCommands();
             String command = scanner.nextLine();
             switch (command) {
                 case EXIT:
@@ -53,7 +42,7 @@ public class Library {
     }
 
     private static void searchBook() {
-        printSearchCommands();
+        Commands.printSearchCommands();
         String search = scanner.nextLine();
         switch (search) {
             case SEARCH_ID:
@@ -85,7 +74,7 @@ public class Library {
         String bookId = scanner.nextLine();
         Book bookById = bookStorage.getBookByID(bookId);
         if (bookById != null) {
-            printUpdateCommands();
+            Commands.printUpdateCommands();
             String updateCommands = scanner.nextLine();
             switch (updateCommands) {
                 case UPDATE_TITLE:
@@ -165,11 +154,14 @@ public class Library {
     }
 
     private static void searchBookByPrice() {
-        System.out.print("Please input MAXIMUM-PRICE: ");
-        double priceMax = Double.parseDouble(scanner.nextLine());
-        System.out.print("Please input MINIMUM-PRICE: ");
-        double priceMin = Double.parseDouble(scanner.nextLine());
-        bookStorage.searchBookByPrice(priceMax, priceMin);
+        System.out.print("Please input MAXIMUM-MINIMUM PRICE: ");
+        String priceStr = scanner.nextLine();
+        String[] priceArray = priceStr.split("-");
+        double priceMax = Double.parseDouble(priceArray[0]);
+        double priceMin = Double.parseDouble(priceArray[1]);
+        if (priceArray.length == 2) {
+            bookStorage.searchBookByPrice(priceMax, priceMin);
+        }
     }
 
     private static void searchBookByAuthorName() {
@@ -203,29 +195,6 @@ public class Library {
         int quantity = Integer.parseInt(scanner.nextLine());
         Book book = new Book(id, title, authorName, price, quantity);
         bookStorage.add(book);
-    }
-
-    private static void printUpdateCommands() {
-        System.out.println("Please input '" + UPDATE_TITLE + "' for update book title.");
-        System.out.println("Please input '" + UPDATE_AUTHOR_NAME + "' for update book author name.");
-        System.out.println("Please input '" + UPDATE_PRICE + "' for update book price.");
-        System.out.println("Please input '" + UPDATE_QUANTITY + "' for update book quantity.");
-        System.out.println("Please input '" + UPDATE_ALL + "' for update all book.");
-    }
-
-    private static void printSearchCommands() {
-        System.out.println("Please input '" + SEARCH_ID + "' for search book by book ID.");
-        System.out.println("Please input '" + SEARCH_TITLE + "' for search book by book title.");
-        System.out.println("Please input '" + SEARCH_AUTHOR_NAME + "' for search book by book author name.");
-        System.out.println("Please input '" + SEARCH_PRICE + "' for search book by book price range.");
-    }
-
-    private static void printCommands() {
-        System.out.println("Please input '" + EXIT + "' for exit.");
-        System.out.println("Please input '" + ADD + "' for add.");
-        System.out.println("Please input '" + PRINT + "' for print all books.");
-        System.out.println("Please input '" + SEARCH + "' for search book.");
-        System.out.println("Please input '" + UPDATE + "' for update book.");
-        System.out.println("Please input '" + DELETE + "' for deleted book.");
+        System.out.println("Book added!");
     }
 }
