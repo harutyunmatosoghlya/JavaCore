@@ -1,6 +1,6 @@
 package classwork.bookStorage;
 
-public interface Commands {
+public interface CommandsLibrary {
     String EXIT = "0";
     String ADD = "1";
     String PRINT = "2";

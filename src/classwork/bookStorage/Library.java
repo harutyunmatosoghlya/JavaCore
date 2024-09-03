@@ -2,7 +2,7 @@ package classwork.bookStorage;
 
 import java.util.Scanner;
 
-public class Library implements Commands {
+public class Library implements CommandsLibrary {
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
 
@@ -13,7 +13,7 @@ public class Library implements Commands {
         bookStorage.add(new Book("A004", "Book4", "Author4", 200, 20));
         boolean isRun = true;
         while (isRun) {
-            Commands.printCommands();
+            CommandsLibrary.printCommands();
             String command = scanner.nextLine();
             switch (command) {
                 case EXIT:
@@ -42,7 +42,7 @@ public class Library implements Commands {
     }
 
     private static void searchBook() {
-        Commands.printSearchCommands();
+        CommandsLibrary.printSearchCommands();
         String search = scanner.nextLine();
         switch (search) {
             case SEARCH_ID:
@@ -74,7 +74,7 @@ public class Library implements Commands {
         String bookId = scanner.nextLine();
         Book bookById = bookStorage.getBookByID(bookId);
         if (bookById != null) {
-            Commands.printUpdateCommands();
+            CommandsLibrary.printUpdateCommands();
             String updateCommands = scanner.nextLine();
             switch (updateCommands) {
                 case UPDATE_TITLE:
