@@ -77,7 +77,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         System.out.print("Please input EMPLOYEE_ID: ");
         String id = scanner.nextLine();
         while (employeeStorage.checkId(id)) {
-            System.out.print("this ID already exists. Please input another ID: ");
+            System.out.print("This ID already exists. Please input another ID: ");
             id = scanner.nextLine();
         }
         boolean check = true;
