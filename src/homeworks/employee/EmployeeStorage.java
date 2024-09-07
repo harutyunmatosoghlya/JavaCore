@@ -9,7 +9,7 @@ public class EmployeeStorage {
             extendsStorage();
         }
         for (int i = 0; i < size; i++) {
-            if (employees[i].getEmployeeID().equals(employee.getEmployeeID())) {
+            if (employees[i].getEmployeeID().equalsIgnoreCase(employee.getEmployeeID())) {
                 System.out.println("this ID already exists");
                 return;
             }
@@ -31,7 +31,7 @@ public class EmployeeStorage {
 
     public void searchEmployeeById(String employeeID) {
         for (int i = 0; i < size; i++) {
-            if (employees[i].getEmployeeID().equals(employeeID)) {
+            if (employees[i].getEmployeeID().contains(employeeID)) {
                 System.out.println(employees[i]);
             }
         }
@@ -43,5 +43,14 @@ public class EmployeeStorage {
                 System.out.println(employees[i]);
             }
         }
+    }
+
+    public boolean checkId(String id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].getEmployeeID().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
