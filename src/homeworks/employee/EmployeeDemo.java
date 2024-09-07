@@ -1,24 +1,24 @@
 package homeworks.employee;
 
-import java.util.Scanner;
-
 public class EmployeeDemo implements CommandsEmployeeDemo {
-    private static Scanner scanner = new Scanner(System.in);
-    private static EmployeeStorage employeeStorage = new EmployeeStorage();
-
-    public static void main(String[] args) {
+    public static void main() {
         boolean isRun = true;
         while (isRun) {
             CommandsEmployeeDemo.printCommands();
             String command = scanner.nextLine();
             switch (command) {
-                case EXIT -> isRun = false;
+                case EXIT -> isRun = exit();
                 case ADD -> addEmployee();
                 case PRINT -> employeeStorage.print();
                 case SEARCH_ID -> searchById();
                 case SEARCH_COMPANY -> searchByCompany();
             }
         }
+    }
+
+    private static boolean exit() {
+        System.out.print("The application has shut down.");
+        return false;
     }
 
     private static void searchByCompany() {
@@ -44,7 +44,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         String name = scanner.nextLine();
         boolean check = true;
         if (!name.isEmpty()) {
-            check = false;
             return name;
         }
         while (check) {
@@ -62,7 +61,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         String surName = scanner.nextLine();
         boolean check = true;
         if (!surName.isEmpty()) {
-            check = false;
             return surName;
         }
         while (check) {
@@ -84,7 +82,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         }
         boolean check = true;
         if (!id.isEmpty()) {
-            check = false;
             return id;
         }
         while (check) {
@@ -111,7 +108,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         } while (checkId);
         boolean check = true;
         if (salary > 0) {
-            check = false;
             return salary;
         }
         while (check) {
@@ -129,7 +125,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         String company = scanner.nextLine();
         boolean check = true;
         if (!company.isEmpty()) {
-            check = false;
             return company;
         }
         while (check) {
@@ -147,7 +142,6 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         String position = scanner.nextLine();
         boolean check = true;
         if (!position.isEmpty()) {
-            check = false;
             return position;
         }
         while (check) {
