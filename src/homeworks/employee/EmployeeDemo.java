@@ -42,54 +42,21 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
     private static String addName() {
         System.out.print("Please input EMPLOYEE_NAME: ");
         String name = scanner.nextLine();
-        boolean check = true;
-        if (!name.isEmpty()) {
-            return name;
-        }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_NAME: ");
-            name = scanner.nextLine();
-            if (!name.isEmpty()) {
-                check = false;
-            }
-        }
-        return name;
+        return check(name);
     }
 
     private static String addSurName() {
         System.out.print("Please input EMPLOYEE_SURNAME: ");
         String surName = scanner.nextLine();
-        boolean check = true;
-        if (!surName.isEmpty()) {
-            return surName;
-        }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_SURNAME: ");
-            surName = scanner.nextLine();
-            if (!surName.isEmpty()) {
-                check = false;
-            }
-        }
-        return surName;
+        return check(surName);
     }
 
     private static String addId() {
         System.out.print("Please input EMPLOYEE_ID: ");
         String id = scanner.nextLine();
-        while (employeeStorage.checkId(id)) {
+        while (employeeStorage.checkId(check(id))) {
             System.out.print("This ID already exists. Please input another ID: ");
             id = scanner.nextLine();
-        }
-        boolean check = true;
-        if (!id.isEmpty()) {
-            return id;
-        }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_ID: ");
-            id = scanner.nextLine();
-            if (!id.isEmpty()) {
-                check = false;
-            }
         }
         return id;
     }
@@ -106,51 +73,48 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
                 System.out.println("input only number");
             }
         } while (checkId);
-        boolean check = true;
-        if (salary > 0) {
-            return salary;
-        }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_SALARY: ");
-            salary = Double.parseDouble(scanner.nextLine());
-            if (salary > 0) {
-                check = false;
-            }
-        }
-        return salary;
+        return check(salary);
     }
 
     private static String addCompany() {
         System.out.print("Please input EMPLOYEE_COMPANY: ");
         String company = scanner.nextLine();
-        boolean check = true;
-        if (!company.isEmpty()) {
-            return company;
-        }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_COMPANY: ");
-            company = scanner.nextLine();
-            if (!company.isEmpty()) {
-                check = false;
-            }
-        }
-        return company;
+        return check(company);
     }
 
     private static String addPosition() {
         System.out.print("Please input EMPLOYEE_POSITION: ");
         String position = scanner.nextLine();
-        boolean check = true;
-        if (!position.isEmpty()) {
-            return position;
+        return check(position);
+    }
+
+    private static String check(String check) {
+        boolean right = true;
+        if (!check.isEmpty()) {
+            return check;
         }
-        while (check) {
-            System.out.print("Please input EMPLOYEE_POSITION: ");
-            position = scanner.nextLine();
-            if (!position.isEmpty()) {
-                check = false;
+        while (right) {
+            System.out.print("enter again: ");
+            check = scanner.nextLine();
+            if (!check.isEmpty()) {
+                right = false;
             }
         }
-        return position;
+        return check;
+    }
+
+    private static double check(double check) {
+        boolean right = true;
+        if (check > 0) {
+            return check;
+        }
+        while (right) {
+            System.out.print("enter a positive number: ");
+            check = Double.parseDouble(scanner.nextLine());
+            if (check > 0) {
+                right = false;
+            }
+        }
+        return check;
     }
 }
