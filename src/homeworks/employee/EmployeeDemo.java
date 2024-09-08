@@ -41,14 +41,12 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
 
     private static String addName() {
         System.out.print("Please input EMPLOYEE_NAME: ");
-        String name = scanner.nextLine();
-        return check(name);
+        return check(scanner.nextLine());
     }
 
     private static String addSurName() {
         System.out.print("Please input EMPLOYEE_SURNAME: ");
-        String surName = scanner.nextLine();
-        return check(surName);
+        return check(scanner.nextLine());
     }
 
     private static String addId() {
@@ -80,14 +78,12 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
 
     private static String addCompany() {
         System.out.print("Please input EMPLOYEE_COMPANY: ");
-        String company = scanner.nextLine();
-        return check(company);
+        return check(scanner.nextLine());
     }
 
     private static String addPosition() {
         System.out.print("Please input EMPLOYEE_POSITION: ");
-        String position = scanner.nextLine();
-        return check(position);
+        return check(scanner.nextLine());
     }
 
     private static String check(String check) {
