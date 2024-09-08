@@ -69,8 +69,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         boolean check = true;
         do {
             try {
-                salary = Double.parseDouble(scanner.nextLine());
-                salary = check(salary);
+                salary = check(Double.parseDouble(scanner.nextLine()));
                 check = false;
             } catch (NumberFormatException e) {
                 System.out.println("input only number");
