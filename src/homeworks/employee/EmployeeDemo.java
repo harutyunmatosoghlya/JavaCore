@@ -70,7 +70,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
                 salary = check(Double.parseDouble(scanner.nextLine()));
                 check = false;
             } catch (NumberFormatException e) {
-                System.out.println("input only number");
+                System.out.print("Please input ONLY_NUMBER: ");
             }
         } while (check);
         return salary;
