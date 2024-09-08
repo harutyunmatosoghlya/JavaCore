@@ -54,7 +54,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         String id = scanner.nextLine();
         id = check(id);
         while (employeeStorage.checkId(id)) {
-            System.out.print("Such an ID is impossible. Please input another ID: ");
+            System.out.print("Such an ID already exists. Please input new ID: ");
             id = scanner.nextLine();
             id = check(id);
         }
@@ -92,7 +92,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
             return check;
         }
         while (right) {
-            System.out.print("enter again: ");
+            System.out.print("You haven't entered anything, try AGAIN: ");
             check = scanner.nextLine();
             if (!check.isEmpty()) {
                 right = false;
@@ -107,7 +107,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
             return check;
         }
         while (right) {
-            System.out.print("enter a positive number: ");
+            System.out.print("Please input POSITIVE_NUMBER: ");
             check = Double.parseDouble(scanner.nextLine());
             if (check > 0) {
                 right = false;
