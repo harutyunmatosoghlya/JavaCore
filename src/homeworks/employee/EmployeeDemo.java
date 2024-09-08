@@ -54,9 +54,11 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
     private static String addId() {
         System.out.print("Please input EMPLOYEE_ID: ");
         String id = scanner.nextLine();
-        while (employeeStorage.checkId(check(id))) {
-            System.out.print("This ID already exists. Please input another ID: ");
+        id = check(id);
+        while (employeeStorage.checkId(id)) {
+            System.out.print("Such an ID is impossible. Please input another ID: ");
             id = scanner.nextLine();
+            id = check(id);
         }
         return id;
     }
@@ -64,16 +66,17 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
     private static double addSalary() {
         System.out.print("Please input EMPLOYEE_SALARY: ");
         double salary = 0;
-        boolean checkId = true;
+        boolean check = true;
         do {
             try {
                 salary = Double.parseDouble(scanner.nextLine());
-                checkId = false;
+                salary = check(salary);
+                check = false;
             } catch (NumberFormatException e) {
                 System.out.println("input only number");
             }
-        } while (checkId);
-        return check(salary);
+        } while (check);
+        return salary;
     }
 
     private static String addCompany() {
