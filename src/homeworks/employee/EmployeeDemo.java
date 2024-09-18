@@ -55,8 +55,7 @@ public class EmployeeDemo implements CommandsEmployeeDemo {
         id = check(id);
         while (employeeStorage.checkId(id)) {
             System.out.print("Such an ID already exists. Please input new ID: ");
-            id = scanner.nextLine();
-            id = check(id);
+            id = check(scanner.nextLine());
         }
         return id;
     }

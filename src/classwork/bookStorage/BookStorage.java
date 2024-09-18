@@ -84,7 +84,7 @@ public class BookStorage {
 
     public Book getBookByID(String id) {
         for (int i = 0; i < size; i++)
-            if (books[i].getId().equals(id)) {
+            if (books[i].getId().equalsIgnoreCase(id)) {
                 return books[i];
             }
         return null;
