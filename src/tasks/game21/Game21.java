@@ -99,7 +99,7 @@ public class Game21 {
     }
 
     private int calculateMaxBots(int targetNumber) {
-        int maxBots = (targetNumber - 1) / 4;
+        int maxBots = (targetNumber - 1) / 3;
         return Math.min(maxBots, 20);
     }
 
