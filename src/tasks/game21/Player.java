@@ -49,6 +49,9 @@ public record Player(String name, boolean isBot) {
         if (move == 0) {
             move = 1;
         }
+        if (new Random().nextBoolean()) {
+            move = new Random().nextInt(1, 3);
+        }
         System.out.println(name + " выбрал: " + move);
         return move;
     }
