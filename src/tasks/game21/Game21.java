@@ -12,6 +12,7 @@ public class Game21 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Игра 21. Вы и несколько ботов по очереди называете число от 1 до 3.");
         int targetNumber = chooseTargetNumber(scanner);
+        boolean think = think(scanner);
         System.out.println("Кто назовет " + targetNumber + ", тот проиграет!");
         int botCount = chooseBotCount(scanner, targetNumber);
         players.add(new Player("Игрок", false));
@@ -21,7 +22,7 @@ public class Game21 {
         int currentPlayerIndex = chooseStartingPlayer(scanner, botCount);
         while (total < targetNumber) {
             Player currentPlayer = players.get(currentPlayerIndex);
-            int move = currentPlayer.makeMove(total);
+            int move = currentPlayer.makeMove(total, think);
             total += move;
             System.out.println("Общая сумма: " + total);
             if (total >= targetNumber) {
@@ -71,6 +72,17 @@ public class Game21 {
         return botCount;
     }
 
+    private boolean think(Scanner scanner) {
+        System.out.print("введите '1' для быстрой игры: ");
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine()) == 1;
+            } catch (NumberFormatException e) {
+                System.out.print("введите число: ");
+            }
+        }
+    }
+
     private int chooseStartingPlayer(Scanner scanner, int botCount) {
         int startingPlayerIndex = 0;
         boolean validInput = false;
@@ -103,7 +115,7 @@ public class Game21 {
         return Math.min(maxBots, 20);
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         Game21 game = new Game21();
         game.startGame();
     }

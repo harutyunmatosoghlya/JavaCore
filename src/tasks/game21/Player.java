@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public record Player(String name, boolean isBot) {
-    public int makeMove(int total) {
+    public int makeMove(int total, boolean think) {
         if (!isBot) {
             return getPlayerMove();
         } else {
-            return getBotMove(total);
+            return getBotMove(total, think);
         }
     }
 
@@ -32,17 +32,21 @@ public record Player(String name, boolean isBot) {
         return move;
     }
 
-    private int getBotMove(int total) {
-        System.out.print(name + " думает");
-        try {
-            Thread.sleep(new Random().nextInt(500, 1500));
-            for (int i = 4; i > 1; i--) {
-                System.out.print(".");
-                Thread.sleep(new Random().nextInt(500, 500 * i));
+    private int getBotMove(int total, boolean think) {
+        if (think) {
+            System.out.print(name + " думает...");
+        } else {
+            try {
+                System.out.print(name + " думает");
+                Thread.sleep(new Random().nextInt(500, 1500));
+                for (int i = 4; i > 1; i--) {
+                    System.out.print(".");
+                    Thread.sleep(new Random().nextInt(500, 500 * i));
+                }
+            } catch (InterruptedException e) {
+                System.out.println("Ошибка при ожидании.");
+                Thread.currentThread().interrupt();
             }
-        } catch (InterruptedException e) {
-            System.out.println("Ошибка при ожидании.");
-            Thread.currentThread().interrupt();
         }
         System.out.println();
         int move = (total + 4) % 4;
